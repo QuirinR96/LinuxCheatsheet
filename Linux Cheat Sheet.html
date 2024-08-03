@@ -1,0 +1,232 @@
+<h1 id="der-linux-cheat-sheet">Der Linux Cheat Sheet</h1>
+<h2 id="dateisystem">Dateisystem</h2>
+<p>In jedem Linux-Dateisystem gibt es eine bemerkenswerte Eigenschaft: Alles wird als Datei behandelt.</p>
+<ul>
+<li>Ordnertrenner: / (&#39;/home/user/Documents/file.txt&#39;)</li>
+</ul>
+<h3 id="ordnerstruktur">Ordnerstruktur</h3>
+<ul>
+<li><p><strong>/</strong> : Root - Oberstes Verzeichnis, beinhaltet alle Ordner und Dateien</p>
+<ul>
+<li><strong>bin</strong> : Binaries - Essentielle ausführbare Terminal-Binärdateien</li>
+<li><strong>boot</strong> : Boot - Statische Dateien des Bootloaders</li>
+<li><strong>dev</strong> : Devices - Gerätedateien</li>
+<li><strong>etc</strong> : Et-Cetera - Systemweite Konfigurationsdateien</li>
+<li><strong>lib</strong> : Libraries - Essentielle geteilte Bibliotheken und Kernel-Module</li>
+<li><strong>media</strong> : Media - Automatischer Einhängepunkt für Massenspeicher</li>
+<li><strong>mnt</strong> : Mount - Manueller Einhängepunkt</li>
+<li><strong>opt</strong> : Optional - Optionale Softwarepakete und Anwendungsprogramme</li>
+<li><strong>run</strong> : Running - Relevante Daten für laufende Prozesse</li>
+<li><strong>sbin</strong> : System Bin. - Essentielle System-Binärdateien</li>
+<li><strong>srv</strong> : Services - Daten für Dienste, die vom System bereitgestellt werden</li>
+<li><strong>tmp</strong> : Temporary - Temporäre Dateien</li>
+<li><strong>usr</strong> : Benutzerprogramme, -bibliotheken und -dokumentationen sowie systemweite ausführbare Dateien und Hilfsprogramme</li>
+<li><strong>var</strong> : Variable - Dateien, die sich häufig ändern (Logs, ...)</li>
+<li><strong>home/[user]</strong> : Home - Benutzerverzeichnisse</li>
+</ul>
+</li>
+<li><p><strong>/home/[user]</strong></p>
+<ul>
+<li><strong>Documents, Downloads, Music, Pictures, Videos</strong> : frei verwendbare Benutzerordner</li>
+<li><strong>Desktop</strong> : auf Dektop angezeigte Daten</li>
+<li><strong>Public</strong> : Daten, die konstant mit anderen geteilt werden sollen</li>
+<li><strong>Templates</strong> : Vorlagen</li>
+<li><strong>.config</strong> : Benutzerspezifische Konfiguration</li>
+<li><strong>.local/share</strong> : Benutzerspezifische Daten und Programmeinstellungen</li>
+<li><strong>.cache</strong> : Zwischenspeicher für Programmdaten</li>
+</ul>
+</li>
+</ul>
+<p>(# =&gt; {Nummer}, ? =&gt; {Buchstabe})</p>
+<ul>
+<li><strong>/dev</strong><ul>
+<li><strong>null</strong> : Verwirft alle hierher geschriebenen Daten</li>
+<li><strong>zero</strong> : Liefert beim Lesen unendlich viele Nullen</li>
+<li><strong>full</strong> : Liefert beim Schreiben immer eine Fehlermeldung „Kein Speicherplatz mehr verfügbar“</li>
+<li><strong>random</strong> : Erzeugt zufällige Daten</li>
+<li><strong>urandom</strong> : Erzeugt pseudozufällige Daten</li>
+<li><strong>tty</strong> : repräsentiert das aktuelle Terminal</li>
+<li><strong>tty#</strong> : repräsentiert jeweiliges Terminal</li>
+<li><strong>/ttyS#</strong> : serielle Schnittstelle</li>
+<li><strong>ttyUSB#</strong> : USB-zu-Seriell-Schnittstelle</li>
+<li><strong>sd?</strong> : Massenspeicher-Gerät</li>
+<li><strong>sd?#</strong> : Partition eines Massenspeichergeräts</li>
+<li><strong>cdrom</strong> : Link zum 1. CD-ROM-Laufwerk (sr0)</li>
+<li><strong>sr#</strong>: CD-ROM-Laufwerk</li>
+<li><strong>rtc</strong> : Echtzeituhr (Real-Time Clock)</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+<h2 id="terminal">Terminal</h2>
+<h3 id="datei--und-verzeichnisverwaltung">Datei- und Verzeichnisverwaltung</h3>
+<ul>
+<li><strong>ls</strong> : list - Verzeichnisinhalt anzeigen</li>
+<li><strong>cd</strong> : change directory - Verzeichnis wechseln</li>
+<li><strong>cp</strong> : copy - Dateien/Verzeichnisse kopieren</li>
+<li><strong>mv</strong> : move - Dateien/Verzeichnisse verschieben/umbenennen</li>
+<li><strong>rm</strong> : remove - Dateien/Verzeichnisse löschen</li>
+<li><strong>mkdir</strong> : make directory - Verzeichnis erstellen</li>
+<li><strong>rmdir</strong> : remove directory - Leeres Verzeichnis löschen</li>
+<li><strong>touch</strong> : touch - Leere Datei erstellen/Zeitstempel ändern</li>
+<li><strong>pwd</strong> : print working directory - Aktuelles Verzeichnis anzeigen</li>
+<li><strong>find</strong> : find - Dateien/Verzeichnisse suchen</li>
+<li><strong>ln</strong> : link - Symbolischen/Hardlink erstellen</li>
+<li><strong>stat</strong> : stat - Datei-/Verzeichnisdetails anzeigen</li>
+<li><strong>file</strong> : file - Dateityp erkennen</li>
+</ul>
+<h3 id="benutzerverwaltung">Benutzerverwaltung</h3>
+<ul>
+<li><strong>who</strong> : who - Angemeldete Benutzer anzeigen</li>
+<li><strong>w</strong> : w - Angemeldete Benutzer und deren Aktivitäten anzeigen</li>
+<li><strong>whoami</strong> : whoami - Aktuellen Benutzer anzeigen</li>
+<li><strong>id</strong> : id - Benutzer- und Gruppeninformationen anzeigen</li>
+<li><strong>useradd</strong> : add user - Benutzer hinzufügen</li>
+<li><strong>userdel</strong> : delete user - Benutzer löschen</li>
+<li><strong>usermod</strong> : user modify - Benutzerkonto ändern</li>
+<li><strong>passwd</strong> : password - Benutzerpasswort ändern</li>
+<li><strong>chage</strong> : change age - Passwort- und Kontoalter ändern</li>
+<li><strong>last</strong> : last - Letzte Anmeldezeiten anzeigen</li>
+<li><strong>su</strong> : substitute user - Benutzer wechseln</li>
+<li><strong>sudo</strong> : superuser do - Befehle als anderer Benutzer ausführen</li>
+</ul>
+<h3 id="rechteverwaltung">Rechteverwaltung</h3>
+<ul>
+<li><strong>chmod</strong> : change mode - Zugriffsrechte ändern</li>
+<li><strong>chown</strong> : change owner - Besitzer ändern</li>
+<li><strong>chgrp</strong> : change group - Gruppe ändern</li>
+<li><strong>umask</strong> : user mask - Standardrechte festlegen</li>
+<li><strong>setfacl</strong> : set file access control list - ACL setzen</li>
+<li><strong>getfacl</strong> : get file access control list - ACL anzeigen</li>
+<li><strong>lsattr</strong> : list attributes - Dateiattribute anzeigen</li>
+<li><strong>chattr</strong> : change attributes - Dateiattribute ändern</li>
+</ul>
+<h3 id="textmanipulierung">Textmanipulierung</h3>
+<ul>
+<li><strong>nano</strong> : nano - interaktive Textbearbeitung</li>
+<li><strong>cat</strong> : concatenate - Dateiinhalte anzeigen</li>
+<li><strong>echo</strong> : echo - Text ausgeben</li>
+<li><strong>head</strong> : head - Anfang einer Datei anzeigen</li>
+<li><strong>tail</strong> : tail - Ende einer Datei anzeigen</li>
+<li><strong>grep</strong> : grep - Muster in Dateien suchen</li>
+<li><strong>sed</strong> : stream editor - Text in Dateien bearbeiten</li>
+<li><strong>awk</strong> : awk - Textverarbeitung und Musterabgleich</li>
+<li><strong>cut</strong> : cut - Textspalten ausschneiden</li>
+<li><strong>sort</strong> : sort - Text sortieren</li>
+<li><strong>uniq</strong> : unique - Doppelte Zeilen entfernen</li>
+<li><strong>tr</strong> : translate - Zeichen übersetzen oder löschen</li>
+<li><strong>wc</strong> : word count - Zeilen, Wörter und Zeichen zählen</li>
+<li><strong>diff</strong> : difference - Unterschiede zwischen Dateien anzeigen</li>
+<li><strong>patch</strong> : patch - Unterschiede anwenden</li>
+<li><strong>nl</strong> : number lines - Zeilen nummerieren</li>
+<li><strong>fmt</strong> : format - Text formatieren</li>
+<li><strong>pr</strong> : print - Textdateien für Druck aufbereiten</li>
+<li><strong>fold</strong> : fold - Lange Zeilen umbrechen</li>
+<li><strong>join</strong> : join - Dateien zeilenweise verbinden</li>
+<li><strong>paste</strong> : paste - Dateien nebeneinander ausgeben</li>
+</ul>
+<h3 id="dateisystem--und-datenträgerverwaltung-mount--mount---dateisystem-einhängen">Dateisystem- und Datenträgerverwaltung+ <strong>mount</strong> : mount - Dateisystem einhängen</h3>
+<ul>
+<li><strong>umount</strong> : unmount - Dateisystem aushängen</li>
+<li><strong>df</strong> : disk free - Freien Speicherplatz anzeigen</li>
+<li><strong>du</strong> : disk usage - Speicherplatznutzung anzeigen</li>
+<li><strong>fsck</strong> : file system check - Dateisystemprüfung durchführen</li>
+<li><strong>mkfs</strong> : make filesystem - Dateisystem erstellen</li>
+<li><strong>blkid</strong> : block id - Blockgeräte und Dateisysteme anzeigen</li>
+<li><strong>lsblk</strong> : list block - Blockgeräte anzeigen</li>
+<li><strong>parted</strong> : partition editor - Partitionen verwalten</li>
+<li><strong>fdisk</strong> : format disk - Partitionstabelle bearbeiten</li>
+<li><strong>mkpart</strong> : make partition - Partition erstellen</li>
+<li><strong>resize2fs</strong> : resize ext2 filesystem - Dateisystemgröße ändern (ext2/ext3/ext4)</li>
+<li><strong>tune2fs</strong> : tune ext2 filesystem - Dateisystemparameter ändern (ext2/ext3/ext4)</li>
+<li><strong>mkswap</strong> : make swap - Swap-Partition erstellen</li>
+<li><strong>swapon</strong> : swap on - Swap-Partition aktivieren</li>
+<li><strong>swapoff</strong> : swap off - Swap-Partition deaktivieren</li>
+<li><strong>cryptsetup</strong> : crypt setup - Datenträgerverschlüsselung einrichten</li>
+<li><strong>mount.cifs</strong> : mount cifs - CIFS-Netzwerkdateisystem einhängen</li>
+<li><strong>mount.nfs</strong> : mount nfs - NFS-Netzwerkdateisystem einhängen</li>
+</ul>
+<h3 id="prozessverwaltung">Prozessverwaltung</h3>
+<ul>
+<li><strong>ps</strong> : process status - Laufende Prozesse anzeigen</li>
+<li><strong>top</strong> : top - Dynamische Prozessanzeige</li>
+<li><strong>htop</strong> : htop - Interaktive Prozessanzeige</li>
+<li><strong>kill</strong> : kill - Prozess beenden</li>
+<li><strong>killall</strong> : kill all - Alle Prozesse mit bestimmten Namen beenden</li>
+<li><strong>pkill</strong> : process kill - Prozesse anhand von Kriterien beenden</li>
+<li><strong>pgrep</strong> : process grep - Prozesse anhand von Kriterien suchen</li>
+<li><strong>nice</strong> : nice - Prozesspriorität festlegen</li>
+<li><strong>renice</strong> : renice - Prozesspriorität ändern</li>
+<li><strong>bg</strong> : background - Prozess im Hintergrund weiterführen</li>
+<li><strong>fg</strong> : foreground - Hintergrundprozess in den Vordergrund holen</li>
+<li><strong>jobs</strong> : jobs - Aktuelle Hintergrundprozesse anzeigen</li>
+<li><strong>nohup</strong> : no hangup - Prozess gegen Abmelden schützen</li>
+<li><strong>at</strong> : at - Einmalige Aufgaben zu bestimmter Zeit planen</li>
+<li><strong>cron</strong> : cron - Wiederkehrende Aufgaben planen</li>
+<li><strong>crontab</strong> : cron table - Cron-Tabellen bearbeiten</li>
+<li><strong>pstree</strong> : process tree - Baumstruktur der Prozesse anzeigen</li>
+<li><strong>systemctl</strong> : system control - System- und Dienstverwaltung</li>
+</ul>
+<h3 id="hilfsprogramme">Hilfsprogramme</h3>
+<ul>
+<li><strong>man</strong> : manual - Handbuchseiten anzeigen</li>
+<li><strong>info</strong> : info - Detailinformationen zu Befehlen anzeigen</li>
+<li><strong>which</strong> : which - Pfad zu einem Befehl anzeigen</li>
+<li><strong>whereis</strong> : where is - Speicherorte von Befehlen und deren Dateien anzeigen</li>
+<li><strong>alias</strong> : alias - Alias für Befehle erstellen</li>
+<li><strong>unalias</strong> : unalias - Alias entfernen</li>
+<li><strong>clear</strong> : clear - Terminalbildschirm löschen</li>
+<li><strong>date</strong> : date - Aktuelles Datum und Uhrzeit anzeigen</li>
+<li><strong>cal</strong> : calendar - Kalender anzeigen</li>
+<li><strong>bc</strong> : basic calculator - Rechner im Terminal</li>
+<li><strong>printf</strong> : print formatted - Formatierten Text ausgeben</li>
+<li><strong>yes</strong> : yes - Text wiederholt ausgeben</li>
+<li><strong>sleep</strong> : sleep - Verzögerung einfügen</li>
+<li><strong>time</strong> : time - Ausführungszeit eines Befehls messen</li>
+<li><strong>watch</strong> : watch - Befehl in regelmäßigen Abständen ausführen</li>
+<li><strong>tee</strong> : tee - Ausgabe in Datei und an Terminal senden</li>
+<li><strong>xargs</strong> : x arguments - Argumente aus Standardausgabe lesen und als Befehlsparameter verwenden</li>
+<li><strong>basename</strong> : basename - Dateiname ohne Pfad anzeigen</li>
+<li><strong>dirname</strong> : dirname - Pfad ohne Dateiname anzeigen</li>
+<li><strong>env</strong> : environment - Umgebungsvariablen anzeigen/anpassen</li>
+<li><strong>export</strong> : export - Umgebungsvariablen setzen</li>
+<li><strong>echo</strong> : echo - Text oder Variableninhalt ausgeben</li>
+<li><strong>uname</strong> : unix name - Systeminformationen anzeigen</li>
+<li><strong>uptime</strong> : uptime - Systemlaufzeit und Auslastung anzeigen</li>
+<li><strong>dmesg</strong> : diagnostic message - Kernel- und Systemmeldungen anzeigen</li>
+</ul>
+<h3 id="datenübergabe">Datenübergabe</h3>
+<ul>
+<li><strong>|</strong> :  Pipe - Ausgabe von Befehl 1 --&gt; Eingabe in Befehl 2</li>
+<li><strong>&gt;</strong> :  Redirect - Ausgabe in Datei (überschreiben)</li>
+<li><strong>&gt;&gt;</strong> :  Append - Ausgabe in Datei (anhängen)</li>
+<li><strong>&lt;</strong> :  Input Redirection - Eingabe aus Datei</li>
+<li><strong>&lt;&lt;</strong> :  Here-Document - Textblock als Eingabe bis Marker</li>
+<li><strong>2&gt;</strong> :  Error Redirection - Fehlerausgabe in Datei (überschreiben)</li>
+<li><strong>2&gt;&gt;</strong> :  Error Append - Fehlerausgabe in Datei (anhängen)</li>
+<li><strong>&amp;&gt;</strong> :  Output and Error Redirection - Ausgabe + Fehler in Datei (überschreiben)</li>
+<li><strong>&amp;&gt;&gt;</strong> :  Output and Error Append - Ausgabe + Fehler in Datei (anhängen)</li>
+</ul>
+<h2 id="linux-geschichte">Linux Geschichte</h2>
+<ul>
+<li><strong>1991</strong>: Linus Torvalds startet das Linux-Projekt und veröffentlicht die erste Version des Linux-Kernels.</li>
+<li><strong>1992</strong>: Linux wird unter der GNU General Public License (GPL) veröffentlicht.</li>
+<li><strong>1993</strong>: Die erste Slackware-Distribution wird veröffentlicht, gefolgt von Debian.</li>
+<li><strong>1994</strong>: Linux Kernel Version 1.0 wird veröffentlicht.</li>
+<li><strong>1996</strong>: Linux Kernel Version 2.0 kommt mit Unterstützung für Symmetrisches Multiprocessing (SMP).</li>
+<li><strong>1998</strong>: IBM und andere große Firmen beginnen, Linux zu unterstützen.</li>
+<li><strong>2001</strong>: Linux Kernel Version 2.4 wird veröffentlicht, verbessert Netzwerksupport und USB-Unterstützung.</li>
+<li><strong>2003</strong>: Red Hat wechselt von Red Hat Linux zu Red Hat Enterprise Linux (RHEL).</li>
+<li><strong>2005</strong>: Linus Torvalds entwickelt das Versionskontrollsystem Git.</li>
+<li><strong>2006</strong>: Ubuntu wird immer beliebter als benutzerfreundliche Distribution.</li>
+<li><strong>2011</strong>: Linux Kernel Version 3.0 wird veröffentlicht.</li>
+<li><strong>2015</strong>: Linux Kernel Version 4.0 erscheint mit Live-Patching-Fähigkeiten.</li>
+<li><strong>2020</strong>: Linux Kernel Version 5.0 bringt zahlreiche Leistungs- und Sicherheitsverbesserungen.</li>
+<li><strong>2021</strong>: 30-jähriges Jubiläum von Linux.</li>
+</ul>
+<h3 id="technische-details">Technische Details</h3>
+<ul>
+<li><strong>Geräte:</strong> Programm -&gt; Gerätedatei -&gt; Kernel -&gt; Hardwareabstraktionsschicht (HAL) -&gt; Treiber -&gt; Gerät</li>
+<li><strong>Systemaufrufe:</strong> Programm -&gt; Bibliotheken -&gt; Systemaufrufe (Syscalls) -&gt; Kernel (System Calls Interface) -&gt; {Prozessverwaltung, Speicherverwaltung, Dateisystemverwaltung, Netzwerkverwaltung}</li>
+<li><strong>Netzwerk:</strong> Anwendung (z.B. Webbrowser) -&gt; Socket API -&gt; Netzwerkprotokolle (TCP/IP) -&gt; Netzwerk-Treiber -&gt; Netzwerkgerät</li>
+</ul>
